@@ -1,3 +1,78 @@
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+
+
+                
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+
+
+
+ScreenGui.Parent = game:GetService("CoreGui")
+
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(-0.254758418, 0, -0.37299037, 0)
+Frame.Size = UDim2.new(0, 2061, 0, 1048)
+Frame.Image = "rbxassetid://7743878857"
+Frame.ImageColor3 = Color3.fromRGB(57, 57, 57)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(3, 174, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.419472903, 0, 0.443729907, 0)
+TextLabel.Size = UDim2.new(0, 219, 0, 70)
+TextLabel.Font = Enum.Font.SpecialElite
+TextLabel.Text = "Xonic Hub"
+TextLabel.TextColor3 = Color3.fromRGB(3, 174, 255)
+TextLabel.TextSize = 100.000
+TextLabel.TextStrokeTransparency = 0.000
+wait(4)
+game.CoreGui:FindFirstChild("ScreenGui"):Destroy()
+
+local notification = Instance.new("Sound")
+notification.Parent = game:GetService("SoundService")
+notification.SoundId = "rbxassetid://7743878857" 
+notification.Volume = 1 
+
+game.StarterGui:SetCore("SendNotification", {
+      Icon = "http://www.roblox.com/asset/?id=";
+      Title = "Xonic Hub", 
+      Text = "Welcome to Xonic Hub";
+notification:Play()
+})
+
+_G.AutoHighlight = true
+
+spawn(function()
+        while wait() do
+            if _G.AutoHighlight then
+                pcall(function()
+                    wait(1)
+                    local players = game.Players:GetPlayers()
+
+                    for i,v in pairs(players) do
+                    local esp = Instance.new("Highlight")
+                    esp.Name = v.Name
+                    esp.FillTransparency = 0.4
+                    esp.FillColor = Color3.new(0, 255, 0)
+                    esp.OutlineColor = Color3.new(1, 0.333333, 1)
+                    esp.OutlineTransparency = 0
+                    esp.Parent = v.Character
+                    end
+                    game.Players.LocalPlayer.Character.Highlight:Destroy()
+                end)
+            end
+        end
+    end)
+    
+    
+
 if game.PlaceId == 2753915549 then
         World1 = true
     elseif game.PlaceId == 4442272183 then
